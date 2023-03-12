@@ -12,3 +12,17 @@ Book Application apps for sorting and rate book based on the Votes
 
     - composer install
     - npm install && npm run dev
+
+## Running the server
+
+### Prepare database table & data
+
+We assume the migration and seeder class already created so just need to run this command (bash only).
+
+Notes:
+If you are not using bash, you can copy the command inside db-fill file, and run it individually.
+
+```bash
+#bash
+./db-fill
+```
