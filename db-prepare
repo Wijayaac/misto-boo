@@ -1,0 +1,15 @@
+#!/bin/bash
+# Only run this command when there is no migration & database seeder file
+# Create migration file
+ECHO 'Make migration file'
+php artisan make:migration create_authors_table
+php artisan make:migration create_book_categories_table
+php artisan make:migration create_books_table
+php artisan make:migration create_book_ratings_table
+
+# Create Database Seeder File
+ECHO 'Make DB:Seeder file'
+php artisan make:seeder AuthorsTableSeeder
+php artisan make:seeder BooksTableSeeder
+php artisan make:seeder BookCategoriesTableSeeder
+php artisan make:seeder BookRatingsTableSeeder
