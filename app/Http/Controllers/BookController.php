@@ -18,7 +18,7 @@ class BookController extends Controller
         $search = $request->query('search') != null ? $request->query('search') : '';
 
         if ($search == '') {
-            $booksWithRating = DB::table('book_ratings')->select(DB::raw('count(id) as votes, AVG(rating) as rating, book_id'))->orderBy('rating', 'desc')->groupBy('book_id')->paginate($limit);
+            $booksWithRating = DB::table('book_ratings')->select(DB::raw('COUNT(id) as votes, AVG(rating) as rating, book_id'))->orderBy('rating', 'desc')->groupBy('book_id')->paginate($limit);
 
             foreach ($booksWithRating as $item) {
                 $book = DB::table('books')
@@ -44,7 +44,7 @@ class BookController extends Controller
 
             foreach ($booksWithRating as $book) {
                 $rating = DB::table('book_ratings')
-                    ->select(DB::raw('count(id) as votes, AVG(rating) as rating'))
+                    ->select(DB::raw('COUNT(id) as votes, AVG(rating) as rating'))
                     ->where('book_id', '=', $book->id)
                     ->get();
                 $book->rating = $rating->pluck('rating')[0];
@@ -56,13 +56,5 @@ class BookController extends Controller
             'books' => $booksWithRating
         ];
         return view('index', $data);
-    }
-
-    public function topAuthors()
-    {
-        $data = [
-            'authors' => 'test'
-        ];
-        return json_encode($data);
     }
 }
