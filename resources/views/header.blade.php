@@ -7,7 +7,7 @@
             <a href="/author">Top Authors</a>
         </li>
         <li>
-            <a href="/book/rate">Rate Book</a>
+            <a href="/rating">Rate Book</a>
         </li>
     </nav>
 </header>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,5 @@ use App\Http\Controllers\AuthorController;
 */
 
 Route::get('/', [BookController::class, 'index']);
-Route::get('/author', [App\Http\Controllers\AuthorController::class, 'index']);
+Route::get('/author', [AuthorController::class, 'index']);
+Route::get('/rating', [RatingController::class, 'index']);
