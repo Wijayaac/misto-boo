@@ -18,4 +18,6 @@ use App\Http\Controllers\RatingController;
 
 Route::get('/', [BookController::class, 'index']);
 Route::get('/author', [AuthorController::class, 'index']);
+Route::get('/author/{id}', [AuthorController::class, 'getBook']);
 Route::get('/rating', [RatingController::class, 'index']);
+Route::post('/rating/save', [RatingController::class, 'save']);

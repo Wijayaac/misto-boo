@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('book_ratings', function (Blueprint $table) {
-            $table->integer('id');
+            $table->increments('id');
             $table->integer('rating');
             $table->foreignIdFor(\App\Models\Book::class, 'book_id');
             $table->timestamps();

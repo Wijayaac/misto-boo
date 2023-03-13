@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookRating;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,16 +15,13 @@ class RatingController extends Controller
 
         $data = [
             'authors' => $authors,
-            'rating' => "test",
         ];
-
-        // return json_encode($data);
         return view('add-rating', $data);
     }
-
-    public function getBooksByAuthor(Request $request)
+    public function save(Request $request)
     {
-        $author = $request->query('author');
-        return json_encode($author);
+        $postData = $request->all('book_id', 'rating');
+        BookRating::create($postData);
+        return redirect('/');
     }
 }

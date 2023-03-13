@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Support\Facades\DB;
 
 class AuthorController extends Controller
@@ -16,5 +18,19 @@ class AuthorController extends Controller
         ];
 
         return view('author', $data);
+    }
+    public function getBook($id)
+    {
+        $author = Author::findOrFail($id);
+
+        $booksByAuthor = Book::where('author_id', $id)->get();
+
+        $data = [
+            'author' => $author,
+            'books' => $booksByAuthor,
+            'message' => "Books data"
+        ];
+
+        return json_encode($data);
     }
 }
