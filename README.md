@@ -26,3 +26,11 @@ If you are not using bash, you can copy the command inside db-fill file, and run
 #bash
 ./db-fill
 ```
+
+### Start Development server
+
+After database ready you can start the development server by running this command.
+
+```bash
+php artisan serve
+```
