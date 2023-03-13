@@ -9,6 +9,7 @@ class Books {
     init() {
         if (!this.form) return;
         this.authorChange();
+        this.getBooks(1);
         this.booksDatalist = this.form.querySelector('#books');
     }
     
